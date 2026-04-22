@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Convite ❤️</title>
+    <style>
+        body {
+            background: #000;
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .instrucao {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        #container {
+            text-align: center;
+            width: 85%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            display: none;
+            font-size: 28px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s ease;
+            max-width: 100%;
+            line-height: 1.5;
+            position: absolute;
+        }
+
+        .item.active {
+            display: block;
+        }
+
+        .destaque {
+            color: #ff4d4d;
+            font-size: 38px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .musica {
+            color: #1DB954;
+            font-style: italic;
+        }
+
+        .emoji {
+            font-size: 50px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        /* Estilo do Coração */
+        .heart-btn {
+            background: none;
+            border: none;
+            font-size: 65px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+            animation: pulse 1.5s infinite;
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .sub-texto {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 10px;
+            font-weight: normal;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body onclick="proxima()">
+
+    <div class="instrucao">clique na tela</div>
+
+    <div id="container">
+        <div class="item active" style="opacity: 1;">Olha, eu até que tentei colocar uma música de fundo em cada página disso aqui...</div>
+        <div class="item">Mas o Google não colaborou nem um pouco com o código. 😂</div>
+        <div class="item">A música seria <span class="musica">"I Wanna Be Yours"</span>.</div>
+        
+        <div class="item">Mas o silêncio também serve para eu dizer que...</div>
+        <div class="item">Estar com você é onde eu encontro minha melhor versão.</div>
+        <div class="item">Estar com você só me dá mais certeza que estou disposto a fazer de tudo por você.</div>
+        <div class="item">Não vim pedir uma chance..</div>
+        <div class="item">Só queria lhe fazer essa homenagem pra ti.</div>
+        <div class="item">Pra lhe mostrar o quão você é especial pra mim.</div>
+
+        <div class="item">E o que eu quero... é estar com você.</div>
+        <div class="item">Mesmo que sua decisão já esteja feita única coisa q eu te peço é pra repensar. </div>
+        <div class="item">Fiz isso com todo o carinho do mundo, e pra sempre vai estar aqui msm depois que virarmos pó kkk </div>
+
+        <div class="item">E pra encerrar...</div>
+
+        <div class="item">
+            Tenho mais uma coisa pra você
+            <span class="emoji">🎁</span>
+        </div>
+        <div class="item">
+            Caso aceite
+            <span class="emoji">🎁</span>
+        </div>
+        <div class="item">
+            Me encontra dia 30/04 <br> 
+            <span class="destaque">às 19:00 na minha casa</span>
+        </div>
+        
+        <div class="item">
+            <button class="heart-btn" onclick="event.stopPropagation(); window.location.href='https://www.youtube.com/watch?v=fukGbiPuBjU'">❤️</button>
+            <div class="sub-texto">clique no coração</div>
+        </div>
+    </div>
+
+    <script>
+        let i = 0;
+        const itens = document.querySelectorAll(".item");
+
+        function proxima() {
+            if (i >= itens.length - 1) return;
+
+            itens[i].style.opacity = 0;
+
+            setTimeout(() => {
+                itens[i].classList.remove("active");
+                i++;
+
+                itens[i].classList.add("active");
+                setTimeout(() => {
+                    itens[i].style.opacity = 1;
+                }, 50);
+            }, 800); 
+        }
+    </script>
+</body>
+</html>

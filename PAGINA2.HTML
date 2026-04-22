@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Memória ❤️</title>
+    <style>
+        body {
+            background: #000; color: white; margin: 0; height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            font-family: sans-serif; overflow: hidden;
+        }
+        .instrucao {
+            position: fixed; top: 20px; left: 20px; font-size: 11px; color: rgba(255,255,255,0.3);
+        }
+        #container { text-align: center; width: 80%; transition: opacity 0.8s; }
+        h2 { font-size: 32px; margin-bottom: 30px; }
+        input {
+            background: transparent; border: none; border-bottom: 2px solid white;
+            color: white; font-size: 24px; text-align: center; padding: 10px;
+            outline: none; width: 100%; max-width: 300px; margin-bottom: 20px;
+        }
+        button {
+            background: white; color: black; border: none; padding: 12px 30px;
+            font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer;
+        }
+        #feedback { margin-top: 20px; color: #ff4d4d; opacity: 0; transition: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="instrucao">clique na tela</div>
+    <div id="container">
+        <h2>Qual foi o primeiro presente que eu te dei?</h2>
+        <input type="text" id="r" placeholder="Resposta..." autocomplete="off">
+        <br>
+        <button onclick="verificar()">Continuar</button>
+        <div id="feedback">Tenta lembrar 💭</div>
+    </div>
+
+    <script>
+        document.getElementById('r').addEventListener('keypress', e => { if(e.key === 'Enter') verificar(); });
+        function verificar() {
+            let r = document.getElementById("r").value.toLowerCase();
+            if(r.includes("ursinho")) {
+                document.getElementById("container").style.opacity = 0;
+                setTimeout(() => { window.location.href = "PAGINA3.html"; }, 800);
+            } else {
+                document.getElementById("feedback").style.opacity = 1;
+                setTimeout(() => { document.getElementById("feedback").style.opacity = 0; }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

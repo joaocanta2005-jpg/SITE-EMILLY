@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Memória ❤️</title>
+    <style>
+        body {
+            background: #000;
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            overflow: hidden;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Frase discreta no canto superior esquerdo */
+        .instrucao {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        #container {
+            text-align: center;
+            width: 85%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            display: none; /* Escondido por padrão */
+            font-size: 32px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            max-width: 100%;
+            line-height: 1.4;
+        }
+
+        /* Mostra apenas o item ativo */
+        .item.active {
+            display: block;
+        }
+
+        button {
+            background: white;
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body onclick="proxima()">
+
+    <div class="instrucao">clique na tela</div>
+
+    <div id="container">
+        <div class="item active" style="opacity: 1;">Eu sei que nem tudo foi perfeito...</div>
+        <div class="item">O nosso primeiro final não foi como deveria.</div>
+        <div class="item">E eu me arrependo disso.</div>
+        <div class="item">Gastei muito tempo tentando salvar pontes que já estavam queimadas antes mesmo de eu atravessar.</div>
+         <div class="item">A maturidade é o preço alto que pagamos pela ingenuidade que perdemos no caminho.</div>
+         <div class="item">Só hoje sei oq perdi aquela época</div>
+         <div class="item">Errei em não ver oq te incomodava, e errei mais ainda de ter feito aquilo tudo.</div>
+         <div class="item">Você nunca foi culpada de nada, o culpado foi eu de ter tido aquelas atitudes</div>
+        
+        <div class="item">
+            <button onclick="window.location.href='7.PAGINAFINALMAPA.HTML'">Continuar</button>
+        </div>
+    </div>
+
+    <script>
+        let i = 0;
+        const itens = document.querySelectorAll(".item");
+
+        function proxima() {
+            // Se estiver no último item (onde está o botão), não faz nada para não pular a página antes do clique
+            if (i >= itens.length - 1) return;
+
+            // Esconde o item atual
+            itens[i].classList.remove("active");
+            itens[i].style.opacity = 0;
+
+            i++;
+
+            // Mostra o próximo item centralizado com efeito fade
+            if (i < itens.length) {
+                setTimeout(() => {
+                    itens[i].classList.add("active");
+                    setTimeout(() => {
+                        itens[i].style.opacity = 1;
+                    }, 50);
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>
